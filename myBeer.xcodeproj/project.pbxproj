@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		50E0DD511FEA74B700C54915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0DD501FEA74B700C54915 /* AppDelegate.swift */; };
-		50E0DD531FEA74B700C54915 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0DD521FEA74B700C54915 /* ViewController.swift */; };
 		50E0DD561FEA74B700C54915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E0DD541FEA74B700C54915 /* Main.storyboard */; };
 		50E0DD581FEA74B700C54915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E0DD571FEA74B700C54915 /* Assets.xcassets */; };
 		50E0DD5B1FEA74B700C54915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E0DD591FEA74B700C54915 /* LaunchScreen.storyboard */; };
 		50E0DD661FEA74B700C54915 /* myBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0DD651FEA74B700C54915 /* myBeerTests.swift */; };
 		50E0DD711FEA74B700C54915 /* myBeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0DD701FEA74B700C54915 /* myBeerUITests.swift */; };
+		50E0DD7F1FEA74F200C54915 /* BeerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0DD7E1FEA74F200C54915 /* BeerTableViewController.swift */; };
+		50E0DD811FEA7B2100C54915 /* addBeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0DD801FEA7B2100C54915 /* addBeerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		50E0DD4D1FEA74B700C54915 /* myBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E0DD501FEA74B700C54915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		50E0DD521FEA74B700C54915 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50E0DD551FEA74B700C54915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50E0DD571FEA74B700C54915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50E0DD5A1FEA74B700C54915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		50E0DD6C1FEA74B700C54915 /* myBeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myBeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E0DD701FEA74B700C54915 /* myBeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myBeerUITests.swift; sourceTree = "<group>"; };
 		50E0DD721FEA74B700C54915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50E0DD7E1FEA74F200C54915 /* BeerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableViewController.swift; sourceTree = "<group>"; };
+		50E0DD801FEA7B2100C54915 /* addBeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBeerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				50E0DD501FEA74B700C54915 /* AppDelegate.swift */,
-				50E0DD521FEA74B700C54915 /* ViewController.swift */,
 				50E0DD541FEA74B700C54915 /* Main.storyboard */,
 				50E0DD571FEA74B700C54915 /* Assets.xcassets */,
 				50E0DD591FEA74B700C54915 /* LaunchScreen.storyboard */,
 				50E0DD5C1FEA74B700C54915 /* Info.plist */,
+				50E0DD7E1FEA74F200C54915 /* BeerTableViewController.swift */,
+				50E0DD801FEA7B2100C54915 /* addBeerViewController.swift */,
 			);
 			path = myBeer;
 			sourceTree = "<group>";
@@ -259,8 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50E0DD531FEA74B700C54915 /* ViewController.swift in Sources */,
+				50E0DD811FEA7B2100C54915 /* addBeerViewController.swift in Sources */,
 				50E0DD511FEA74B700C54915 /* AppDelegate.swift in Sources */,
+				50E0DD7F1FEA74F200C54915 /* BeerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
