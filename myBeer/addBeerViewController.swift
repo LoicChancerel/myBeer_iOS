@@ -10,6 +10,23 @@ import UIKit
 
 class addBeerViewController: UIViewController {
 
+    @IBOutlet weak var inputBeerName: UITextField!
+    @IBOutlet weak var inputBeerStrength: UITextField!
+    @IBOutlet weak var inputBeerNote: UITextField!
+    
+    let db: DatabaseAccess
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.db = DatabaseAccess()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.db = DatabaseAccess()
+        super.init(coder: aDecoder)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +44,15 @@ class addBeerViewController: UIViewController {
     
     @IBAction func saveButtonOnClick(_ sender: UIBarButtonItem) {
         // Todo : save beer !
+        let newBeer = Beer.init(name: inputBeerName.text!, strength: Double(inputBeerStrength.text!)!, note: Double(inputBeerNote.text!)!)
+        do {
+            let beerSaved = try db.insertBeer(beer: newBeer)
+            print("You saved the beer \(beerSaved.getName()) !")
+            self.dismiss(animated: true, completion: nil)
+        } catch {
+            print(error)
+        }
+        
     }
     
     /*

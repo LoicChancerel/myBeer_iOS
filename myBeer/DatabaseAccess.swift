@@ -12,7 +12,7 @@ import SQLite
 
 class DatabaseAccess {
     
-    let db: Connection!
+    var db: Connection!
     
     let beersTable = Table("beers")
     let id = Expression<Int>("id")
@@ -20,14 +20,15 @@ class DatabaseAccess {
     let strength = Expression<Double>("strength")
     let note = Expression<Double>("note")
     
-    init() throws {
+    init() {
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let fileUrl = documentDirectory.appendingPathComponent("beers").appendingPathExtension("slite3")
-            self.db = try Connection(fileUrl.path)
+            let db = try Connection(fileUrl.path)
+            self.db = db
+            try self.createTable()
         } catch {
             print(error)
-            throw error
         }
     }
     
@@ -61,8 +62,8 @@ class DatabaseAccess {
         }
     }
     
-    func getAllBeers() throws -> [Beer] {
-        var arrayBeers = [Beer]()
+    func getAllBeers() throws -> Array<Beer> {
+        var arrayBeers = Array<Beer>()
         do {
             let beers = try self.db.prepare(self.beersTable)
             for beerRow in beers {

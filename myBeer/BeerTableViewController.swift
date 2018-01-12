@@ -9,9 +9,33 @@
 import UIKit
 
 class BeerTableViewController: UITableViewController {
-
+    
+    var db: DatabaseAccess!
+    var allBeers: Array<Beer>!
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        do {
+            self.db = DatabaseAccess()
+            self.allBeers = try db.getAllBeers()
+        } catch {
+            print(error)
+        }
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.db = DatabaseAccess()
+        do {
+            self.allBeers = try db.getAllBeers()
+        } catch {
+            print(error)
+        }
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,7 +48,12 @@ class BeerTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,14 +64,14 @@ class BeerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         // here get the count of beers in database
-        return 2
+        return allBeers!.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellBeer", for: indexPath)
 
-        cell.textLabel?.text = "Bière"
+        cell.textLabel?.text = allBeers[indexPath.row].getName()
         
         return cell
     }

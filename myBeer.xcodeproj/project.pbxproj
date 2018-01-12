@@ -11,6 +11,7 @@
 		5025B54D2008B8DA00F0889B /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5025B53F2008B8CC00F0889B /* SQLite.framework */; };
 		5025B54E2008B8DA00F0889B /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5025B53F2008B8CC00F0889B /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5025B5522008BC6C00F0889B /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025B5512008BC6C00F0889B /* Beer.swift */; };
+		5025B5542008C25500F0889B /* DisplayBeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025B5532008C25500F0889B /* DisplayBeerViewController.swift */; };
 		504BA8CE1FEA876900F52505 /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504BA8CD1FEA876900F52505 /* DatabaseAccess.swift */; };
 		50E0DD511FEA74B700C54915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0DD501FEA74B700C54915 /* AppDelegate.swift */; };
 		50E0DD561FEA74B700C54915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E0DD541FEA74B700C54915 /* Main.storyboard */; };
@@ -112,6 +113,7 @@
 /* Begin PBXFileReference section */
 		5025B5342008B8CC00F0889B /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		5025B5512008BC6C00F0889B /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		5025B5532008C25500F0889B /* DisplayBeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayBeerViewController.swift; sourceTree = "<group>"; };
 		504BA8CD1FEA876900F52505 /* DatabaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAccess.swift; sourceTree = "<group>"; };
 		50E0DD4D1FEA74B700C54915 /* myBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E0DD501FEA74B700C54915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				50E0DD801FEA7B2100C54915 /* addBeerViewController.swift */,
 				504BA8CD1FEA876900F52505 /* DatabaseAccess.swift */,
 				5025B5512008BC6C00F0889B /* Beer.swift */,
+				5025B5532008C25500F0889B /* DisplayBeerViewController.swift */,
 			);
 			path = myBeer;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				50E0DD811FEA7B2100C54915 /* addBeerViewController.swift in Sources */,
 				50E0DD511FEA74B700C54915 /* AppDelegate.swift in Sources */,
 				5025B5522008BC6C00F0889B /* Beer.swift in Sources */,
+				5025B5542008C25500F0889B /* DisplayBeerViewController.swift in Sources */,
 				504BA8CE1FEA876900F52505 /* DatabaseAccess.swift in Sources */,
 				50E0DD7F1FEA74F200C54915 /* BeerTableViewController.swift in Sources */,
 			);

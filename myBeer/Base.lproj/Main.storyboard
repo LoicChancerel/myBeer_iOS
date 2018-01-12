@@ -40,7 +40,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="CGC-Lp-JRa" kind="show" id="91n-be-TiI"/>
+                                    <segue destination="CGC-Lp-JRa" kind="show" identifier="displayBeer" id="91n-be-TiI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -131,15 +131,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="inputBeerName" destination="ZPA-jC-WfJ" id="Nds-O4-MD4"/>
+                        <outlet property="inputBeerNote" destination="iJk-Ul-pGN" id="sTh-Rz-n9b"/>
+                        <outlet property="inputBeerStrength" destination="CXM-RF-S6V" id="FE4-YI-rBp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pf4-yO-2aI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1740" y="-435.83208395802103"/>
         </scene>
-        <!--View Controller-->
+        <!--Display Beer View Controller-->
         <scene sceneID="K5E-c8-1xL">
             <objects>
-                <viewController id="CGC-Lp-JRa" sceneMemberID="viewController">
+                <viewController id="CGC-Lp-JRa" customClass="DisplayBeerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DQb-dU-OOT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
