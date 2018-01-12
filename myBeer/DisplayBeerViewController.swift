@@ -11,6 +11,7 @@ import UIKit
 class DisplayBeerViewController: UIViewController {
     
     var beer: Beer!
+    var beerId: Int!
     
     @IBOutlet weak var displayBeerName: UILabel!
     @IBOutlet weak var displayBeerNote: UILabel!
@@ -19,7 +20,7 @@ class DisplayBeerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(beerId)
         displayBeerName.text = beer.getName()
         displayBeerStrength.text = String(beer.getStrength())
         displayBeerNote.text = String(beer.getNote())
@@ -31,6 +32,7 @@ class DisplayBeerViewController: UIViewController {
         do {
             let db = DatabaseAccess()
             try db.deleteBeer(beer: beer)
+            self.dismiss(animated: true, completion: nil)
         } catch {
             print(error)
         }

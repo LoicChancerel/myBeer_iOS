@@ -40,7 +40,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="CGC-Lp-JRa" kind="show" identifier="displayBeer" id="91n-be-TiI"/>
+                                    <segue destination="CGC-Lp-JRa" kind="showDetail" identifier="displayBeer" id="ibF-GP-RqE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -144,7 +144,7 @@
         <!--Display Beer View Controller-->
         <scene sceneID="K5E-c8-1xL">
             <objects>
-                <viewController id="CGC-Lp-JRa" customClass="DisplayBeerViewController" sceneMemberID="viewController">
+                <viewController id="CGC-Lp-JRa" customClass="DisplayBeerViewController" customModule="myBeer" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DQb-dU-OOT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

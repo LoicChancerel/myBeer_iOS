@@ -59,6 +59,12 @@ class BeerTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let destination = DisplayBeerViewController()
+//        destination.beer = self.selectedBeer
+//        destination.performSegue(withIdentifier: "displayBeer", sender: self)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,14 +123,20 @@ class BeerTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        if segue.identifier == "displayBeer" {
+            let displayBeerViewController = segue.destination as! DisplayBeerViewController
+            displayBeerViewController.beer = allBeers[(self.tableView.indexPathForSelectedRow?.row)!]
+        }
+
     }
-    */
+    
 
 }
