@@ -51,6 +51,11 @@ class BeerTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        do {
+            self.allBeers = try db.getAllBeers()
+        } catch {
+            print(error)
+        }
         self.tableView.reloadData()
     }
     

@@ -11,13 +11,31 @@ import UIKit
 class DisplayBeerViewController: UIViewController {
     
     var beer: Beer!
-
+    
+    @IBOutlet weak var displayBeerName: UILabel!
+    @IBOutlet weak var displayBeerNote: UILabel!
+    @IBOutlet weak var displayBeerStrength: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        displayBeerName.text = beer.getName()
+        displayBeerStrength.text = String(beer.getStrength())
+        displayBeerNote.text = String(beer.getNote())
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func deleteBeerOnClick(_ sender: UIButton) {
+        do {
+            let db = DatabaseAccess()
+            try db.deleteBeer(beer: beer)
+        } catch {
+            print(error)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

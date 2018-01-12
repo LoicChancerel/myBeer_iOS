@@ -201,11 +201,19 @@
                                 <rect key="frame" x="283" y="542" width="66" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="trash_empty"/>
+                                <connections>
+                                    <action selector="deleteBeerOnClick:" destination="CGC-Lp-JRa" eventType="touchUpInside" id="jYc-kn-daG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="fmv-xK-eUc"/>
                     </view>
+                    <connections>
+                        <outlet property="displayBeerName" destination="KlH-Ke-HM0" id="iA7-i9-owe"/>
+                        <outlet property="displayBeerNote" destination="93p-yi-uyq" id="XDA-l3-0RY"/>
+                        <outlet property="displayBeerStrength" destination="5db-p7-f2L" id="rIs-JP-yxh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6n-8f-fqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
