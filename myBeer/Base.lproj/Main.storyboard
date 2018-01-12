@@ -160,6 +160,9 @@
                                 <rect key="frame" x="218" y="584" width="66" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="pen-tool_47193"/>
+                                <connections>
+                                    <action selector="editBeerOnClick:" destination="CGC-Lp-JRa" eventType="touchUpInside" id="yJn-6E-mha"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkR-Pn-jbi">
                                 <rect key="frame" x="293" y="584" width="66" height="63"/>

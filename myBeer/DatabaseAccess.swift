@@ -90,6 +90,16 @@ class DatabaseAccess {
         }
     }
     
+    func updateBeer(beer: Beer) {
+        let beerQuery = self.beersTable.filter(self.id == beer.getId())
+        let updateBeer = beerQuery.update(self.name <- beer.getName(), self.strength <- beer.getStrength(), self.note <- beer.getNote())
+        do {
+            try self.db.run(updateBeer)
+        } catch {
+            print(error)
+        }
+    }
+    
     func rowToBeer(row: Row!) -> Beer {
         return Beer.init(id: row[self.id], name: row[self.name], strength: row[self.strength], note: row[self.note])
     }

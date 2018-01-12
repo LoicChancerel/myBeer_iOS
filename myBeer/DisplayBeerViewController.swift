@@ -11,6 +11,7 @@ import UIKit
 class DisplayBeerViewController: UIViewController {
     
     var beer: Beer!
+    var db: DatabaseAccess!
     
     @IBOutlet weak var displayBeerName: UILabel!
     @IBOutlet weak var displayBeerNote: UILabel!
@@ -19,6 +20,7 @@ class DisplayBeerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.db = DatabaseAccess()
         displayBeerName.text = beer.getName()
         displayBeerStrength.text = String(beer.getStrength())
         displayBeerNote.text = String(beer.getNote())
@@ -27,12 +29,11 @@ class DisplayBeerViewController: UIViewController {
     }
 
     @IBAction func deleteBeerOnClick(_ sender: UIButton) {
-            let db = DatabaseAccess()
             let alertController = UIAlertController(title: "Supprimer un élément", message: "Voulez vous vraiment supprimer l'élément \(self.beer.getName()) ?", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Valider", style: .default, handler: { (action) in
             do {
-                try db.deleteBeer(beer: self.beer)
+                try self.db.deleteBeer(beer: self.beer)
                 print("Beer deleted successfully !")
                 self.navigationController?.popViewController(animated: true)
             } catch {
@@ -42,6 +43,35 @@ class DisplayBeerViewController: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
             
+    }
+    
+    @IBAction func editBeerOnClick(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Modifier une bière", message: "Dans l'ordre : le nom, les degrés et votre note", preferredStyle: .alert)
+        alert.addTextField { (tf) in
+            tf.text = self.beer.getName()
+        }
+        alert.addTextField { (tf) in
+            tf.text = String(self.beer.getStrength())
+        }
+        alert.addTextField { (tf) in
+            tf.text = String(self.beer.getNote())
+        }
+        alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
+        
+        alert.addAction(UIAlertAction(title: "Valider", style: .default, handler: { (action) in
+            guard let beerName = alert.textFields?[0].text,
+                let beerStrength = Double(alert.textFields![1].text!),
+                let beerNote = Double(alert.textFields!.last!.text!)
+                else { return }
+            
+            let beerChanged = Beer(id: self.beer.getId(), name: beerName, strength: beerStrength, note: beerNote)
+            self.db.updateBeer(beer: beerChanged)
+            self.beer = beerChanged
+            self.viewDidLoad()
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     override func didReceiveMemoryWarning() {
