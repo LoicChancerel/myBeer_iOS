@@ -11,7 +11,6 @@ import UIKit
 class DisplayBeerViewController: UIViewController {
     
     var beer: Beer!
-    var beerId: Int!
     
     @IBOutlet weak var displayBeerName: UILabel!
     @IBOutlet weak var displayBeerNote: UILabel!
@@ -20,7 +19,6 @@ class DisplayBeerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(beerId)
         displayBeerName.text = beer.getName()
         displayBeerStrength.text = String(beer.getStrength())
         displayBeerNote.text = String(beer.getNote())
@@ -29,13 +27,21 @@ class DisplayBeerViewController: UIViewController {
     }
 
     @IBAction func deleteBeerOnClick(_ sender: UIButton) {
-        do {
             let db = DatabaseAccess()
-            try db.deleteBeer(beer: beer)
-            self.dismiss(animated: true, completion: nil)
-        } catch {
-            print(error)
-        }
+            let alertController = UIAlertController(title: "Supprimer un élément", message: "Voulez vous vraiment supprimer l'élément \(self.beer.getName()) ?", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Valider", style: .default, handler: { (action) in
+            do {
+                try db.deleteBeer(beer: self.beer)
+                print("Beer deleted successfully !")
+                self.navigationController?.popViewController(animated: true)
+            } catch {
+                print(error)
+            }
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+            
     }
     
     override func didReceiveMemoryWarning() {

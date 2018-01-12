@@ -44,15 +44,31 @@ class addBeerViewController: UIViewController {
     
     @IBAction func saveButtonOnClick(_ sender: UIBarButtonItem) {
         // Todo : save beer !
-        let newBeer = Beer.init(name: inputBeerName.text!, strength: Double(inputBeerStrength.text!)!, note: Double(inputBeerNote.text!)!)
-        do {
-            let beerSaved = try db.insertBeer(beer: newBeer)
-            print("You saved the beer \(beerSaved.getName()) !")
-            self.dismiss(animated: true, completion: nil)
-        } catch {
-            print(error)
-        }
+        let name = inputBeerName.text!
+        let strength = Double(inputBeerStrength.text!)
+        let note = Double(inputBeerNote.text!)
         
+        let alertController = UIAlertController(title: "Oops", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        if name == "" {
+            alertController.message = "Veuillez remplir le nom"
+        } else if strength == nil || strength! > 90.0  {
+            alertController.message = "Veuillez choisir un degré raisonnable"
+        } else if note == nil || note! > 20.0 {
+            alertController.message = "La notation se fait sur 20"
+        } else{
+            let newBeer = Beer.init(name: name, strength: strength!, note: note!)
+            do {
+                let beerSaved = try db.insertBeer(beer: newBeer)
+                print("You saved the beer \(beerSaved.getName()) !")
+                self.dismiss(animated: true, completion: nil)
+            } catch {
+                print(error)
+            }
+        }
+    
+        self.present(alertController, animated: true, completion: nil)
     }
     
     /*
