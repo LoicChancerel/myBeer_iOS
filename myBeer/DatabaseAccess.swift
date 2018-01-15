@@ -20,6 +20,7 @@ class DatabaseAccess {
     let strength = Expression<Double>("strength")
     let note = Expression<Double>("note")
     
+    // Initialize the DAO
     init() {
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -32,6 +33,7 @@ class DatabaseAccess {
         }
     }
     
+    // Create the table Beer
     func createTable() throws {
         let createTable = self.beersTable.create { (t) in
             t.column(self.id, primaryKey: true)
@@ -49,6 +51,7 @@ class DatabaseAccess {
         }
     }
     
+    // Insert a beer
     func insertBeer(beer: Beer) throws -> Beer {
         let insertBeerQuery = self.beersTable.insert(self.name <- beer.getName(), self.strength <- beer.getStrength(), self.note <- beer.getNote())
         
@@ -62,6 +65,7 @@ class DatabaseAccess {
         }
     }
     
+    // Return all beers from the database
     func getAllBeers() throws -> Array<Beer> {
         var arrayBeers = Array<Beer>()
         do {
@@ -76,6 +80,7 @@ class DatabaseAccess {
         return arrayBeers
     }
     
+    // get One beer
     func getBeerById(id: Int) throws -> Beer {
         do {
             let beer = beersTable.filter(self.id == id)
@@ -83,6 +88,7 @@ class DatabaseAccess {
         }
     }
     
+    // Delete the beer in parameter
     func deleteBeer(beer: Beer) throws {
         do {
             let beer = beersTable.filter(self.id == beer.getId())
@@ -90,6 +96,7 @@ class DatabaseAccess {
         }
     }
     
+    // Update the beer in parameter
     func updateBeer(beer: Beer) {
         let beerQuery = self.beersTable.filter(self.id == beer.getId())
         let updateBeer = beerQuery.update(self.name <- beer.getName(), self.strength <- beer.getStrength(), self.note <- beer.getNote())
@@ -100,6 +107,7 @@ class DatabaseAccess {
         }
     }
     
+    // Get a SQLite row, return a Beer - Magical !
     func rowToBeer(row: Row!) -> Beer {
         return Beer.init(id: row[self.id], name: row[self.name], strength: row[self.strength], note: row[self.note])
     }
